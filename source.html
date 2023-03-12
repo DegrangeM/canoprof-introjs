@@ -1,0 +1,29 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intro.js/6.0.0/intro.js"
+    integrity="sha512-iC2jUAfCjQVVR2eGiPYjV2lb7ZIF0Tx3xPj/PdGZSJkSJVz5y+88tRwshNmrso1twhzhSQwBPXNLdAqUYmRAPg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/6.0.0/introjs.css"
+    integrity="sha512-4OzqLjfh1aJa7M33b5+h0CSx0Q3i9Qaxlrr1T/Z+Vz+9zs5A7GM3T3MFKXoreghi3iDOSbkPMXiMBhFO7UBW/g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+<script>
+    Array.from(document.querySelectorAll('.profInstruction')).forEach(x => { x.style.display = 'none'; });
+    Array.from(document.querySelectorAll('.profInstruction video')).forEach(x => { x.setAttribute('autoplay', 'true') });
+    document.body.addEventListener('click', () => {
+        introJs().onbeforechange(x => {
+            let el = x;
+            while (el) {
+                console.log(el);
+                if (el?.classList?.contains('collBlk_closed')) {
+                    el.previousElementSibling.querySelector('a.section_closed').click()
+                }
+                el = el?.parentNode;
+            }
+        }).setOptions({
+            steps: Array.from(document.querySelectorAll('.profInstruction')).map(x => ({
+                title: 'aaaa',
+                intro: x.innerHTML,
+                element: x.previousElementSibling
+            }))
+        }).start();
+    }, { once: true });
+
+</script>
