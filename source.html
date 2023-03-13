@@ -23,10 +23,12 @@
                     el = el?.parentNode;
                 }
             }).setOptions({
-                steps: Array.from(document.querySelectorAll('.profInstruction')).map(x => ({
-                    intro: x.innerHTML.replace('<video','<video autoplay="true"'),
-                    element: x.previousElementSibling
-                }))
+                steps: Array.from(document.querySelectorAll('.profInstruction')).map(
+                    x => ({
+                        intro: x.innerHTML.replace('<video', '<video autoplay="true"'),
+                        element: x.previousElementSibling
+                    })
+                )
             }).start();
         });
         document.currentScript.parentNode.insertBefore(button, document.currentScript);
