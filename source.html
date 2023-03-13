@@ -11,8 +11,6 @@
 </style>
 <script>
     if (document.body.classList.contains('genType-prof')) {
-        // Array.from(document.querySelectorAll('.profInstruction')).forEach(x => { x.style.display = 'none'; });
-        //Array.from(document.querySelectorAll('.profInstruction video')).forEach(x => { x.setAttribute('autoplay', 'true') });
         let button = document.createElement('button');
         button.textContent = "Démarrer le guide";
         button.addEventListener('click', () => {
@@ -24,19 +22,13 @@
                     }
                     el = el?.parentNode;
                 }
-            }).onafterchange(() => {
-                let el = document.querySelector('.introjs-tooltip video');
-                if (el) {
-                    el.play();
-                }
             }).setOptions({
                 steps: Array.from(document.querySelectorAll('.profInstruction')).map(x => ({
-                    /* title: 'aaaa',*/
-                    intro: x.innerHTML,
+                    intro: x.innerHTML.replace('<video','<video autoplay="true"'),
                     element: x.previousElementSibling
                 }))
             }).start();
-        }/*, { once: true }*/);
+        });
         document.currentScript.parentNode.insertBefore(button, document.currentScript);
     }
 </script>
