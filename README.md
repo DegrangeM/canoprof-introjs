@@ -14,4 +14,7 @@ Canoprof-introjs est un grain à ajouter à canoprof qui vous permettra d'augmen
 1. Générez votre contenu en mode `Vue prof`.
 
 ## Attention
-Attention, cet outil utilise introjs qui est sous license agplv3. Il s'agit d'une license contaminante.
+
+- Attention, cet outil utilise introjs qui est sous license agplv3. Il s'agit d'une license contaminante.
+
+- Il est possible que mon outil cesse de fonctionner en cas de changement de la part de canoprof.
